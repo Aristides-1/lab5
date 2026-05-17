@@ -38,7 +38,18 @@ class Picture:
     return Picture(negativo)
 
   def join(self, p):
-    return Picture(None)
+    """ Devuelve una nueva figura poniendo la figura del argumento 
+        al lado derecho de la figura actual """
+    #Creamos una lista vacía para almacenar las filas combinadas horizontalmente
+    columnas_juntas = []
+    
+    #Con 'zip' recorremos al mismo tiempo las filas de la figura actual y de la figura 'p'
+    for f1, f2 in zip(self.img, p.img):
+        #Concatenamos los strings de ambas filas con el operador (+)
+        columnas_juntas.append(f1 + f2)
+        
+    #Retornamos el nuevo objeto Picture con el resultado del arreglo interno
+    return Picture(columnas_juntas)
 
   def up(self, p):
     return Picture(None)
