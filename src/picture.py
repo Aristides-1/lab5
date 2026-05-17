@@ -57,8 +57,28 @@ class Picture:
     return Picture(p.img + self.img)
 
   def under(self, p):
-    return Picture(None)
-  
+    """ Devuelve una nueva figura poniendo la figura p sobre la
+        figura actual """
+    # 1. Lista para almacenar las filas combinadas finales
+    fusionado = []
+    
+    # 2. Recorremos al mismo tiempo las filas del fondo (self) y del frente (p)
+    for f_fondo, f_frente in zip(self.img, p.img):
+        nueva_linea = []
+        
+        # 3. Recorremos carácter por carácter de ambas filas alineadamente
+        for c_fondo, c_frente in zip(f_fondo, f_frente):
+            # Si el frente no es vacío, domina el frente; si es vacío, se ve el fondo
+            if c_frente != ' ':
+                nueva_linea.append(c_frente)
+            else:
+                nueva_linea.append(c_fondo)
+                
+        # 4. Juntamos los caracteres en un string y lo agregamos a la lista
+        fusionado.append("".join(nueva_linea))
+        
+    # 5. Devolvemos el nuevo objeto Picture con el arreglo interno resultante
+    return Picture(fusionado)
   def horizontalRepeat(self, n):
     return Picture(None)
 
