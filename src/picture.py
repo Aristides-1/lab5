@@ -52,7 +52,9 @@ class Picture:
     return Picture(columnas_juntas)
 
   def up(self, p):
-    return Picture(None)
+    """ Devuelve una nueva figura poniendo la figura p encima de la actual """
+    # Al sumar listas, los strings (filas) de p quedan arriba de los de self
+    return Picture(p.img + self.img)
 
   def under(self, p):
     return Picture(None)
