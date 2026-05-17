@@ -88,5 +88,10 @@ class Picture:
     
     return Picture(repetido_horizontal)
 
-  def verticalRepeat(self, n):
-    return Picture(None)
+def verticalRepeat(self, n):
+    """ Devuelve una nueva figura repitiendo la figura actual debajo
+        la cantidad de veces que indique el valor de n """
+    #Multiplicamos la lista completa de strings (filas) por n
+    repetido_vertical = self.img * n
+    
+    return Picture(repetido_vertical)
